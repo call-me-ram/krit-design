@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Direction B — Operations log</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="dc-shim.js"></script>
+<style>x-dc,helmet,sc-for,sc-if{display:contents}</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0F1B2D;font-family:'Schibsted Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#C2410C;text-decoration:none}a:hover{color:#9A3412}
+@keyframes b-log{from{transform:translateY(0)}to{transform:translateY(-50%)}}
+@keyframes b-flow{to{stroke-dashoffset:-20}}
+@keyframes b-pulse{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes b-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 5000px; background: #0F1B2D; color: #0F1B2D; display: flex; flex-direction: column; font-family: 'Schibsted Grotesk', system-ui, sans-serif;">
+
+<div style="background-color: #F4F4F1; background-image: linear-gradient(#E3E3DD 1px, transparent 1px), linear-gradient(90deg, #E3E3DD 1px, transparent 1px); background-size: 32px 32px; display: flex; flex-direction: column;">
+
+<header style="height: 76px; padding: 0 80px; display: flex; align-items: center; justify-content: space-between; background: #F4F4F1; border-bottom: 1px solid #0F1B2D;">
+<a href="#top" style="display: flex; align-items: center; gap: 12px; color: #0F1B2D;">
+<span style="width: 34px; height: 34px; background: #0F1B2D; color: #F4F4F1; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; letter-spacing: -0.02em;">KR</span>
+<span style="font-weight: 700; font-size: 19px; letter-spacing: -0.01em;">KR IT Solution</span>
+</a>
+<nav aria-label="Main" style="display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 500;">
+<a href="#work" style="color: #0F1B2D;">Work</a>
+<a href="#systems" style="color: #0F1B2D;">Systems</a>
+<a href="Engineering.html" style="color: #0F1B2D;">Engineering</a>
+<a href="ColdRoom.html" style="color: #0F1B2D;">Products</a>
+<a href="Contact.html" style="height: 44px; padding: 0 20px; display: inline-flex; align-items: center; background: #C2410C; color: #FFFFFF; font-weight: 600;">Start a project →</a>
+</nav>
+</header>
+
+<section id="top" style="padding: 96px 80px 104px; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 64px; align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 28px; animation: b-rise 0.8s ease-out both;">
+<span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; padding: 6px 10px; border: 1px solid #0F1B2D; background: #F4F4F1;">ERP · POS · SAP / TALLY · SHOP-FLOOR APPS</span>
+<h1 style="margin: 0; font-size: 80px; line-height: 0.98; font-weight: 800; letter-spacing: -0.045em;">We build the systems your operations run on.</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #3A4658; max-width: 540px; background: #F4F4F1;">Billing counters, cold rooms, milk routes, SAP reports, supplier desks. Custom software for manufacturers, food businesses and distributors — shipped, running, and supported.</p>
+<div style="display: flex; gap: 12px;">
+<a href="Contact.html" style="height: 56px; padding: 0 26px; display: inline-flex; align-items: center; background: #0F1B2D; color: #F4F4F1; font-weight: 600; font-size: 16px;">Book a 30-min call</a>
+<a href="#work" style="height: 56px; padding: 0 26px; display: inline-flex; align-items: center; border: 1px solid #0F1B2D; background: #F4F4F1; color: #0F1B2D; font-weight: 600; font-size: 16px;">See the work</a>
+</div>
+</div>
+
+<!-- live event log -->
+<div style="background: #0F1B2D; color: #E6E8EC; border: 1px solid #0F1B2D; box-shadow: 12px 12px 0 #C2410C; display: flex; flex-direction: column;">
+<div style="height: 44px; padding: 0 18px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #24344D; font-family: 'JetBrains Mono', monospace; font-size: 12px;">
+<span style="display: flex; align-items: center; gap: 8px;"><span style="width: 8px; height: 8px; border-radius: 50%; background: #4ADE80; animation: b-pulse 1.6s ease-in-out infinite;"></span>events · systems we run</span>
+<span style="color: #7D8AA0;">today</span>
+</div>
+<div style="height: 380px; overflow: hidden; position: relative;">
+<div style="animation: b-log 26s linear infinite; display: flex; flex-direction: column;">
+<sc-for list="{{events}}" as="e" hint-placeholder-count="12">
+<div style="display: grid; grid-template-columns: 64px 128px minmax(0, 1fr); gap: 12px; padding: 11px 18px; border-bottom: 1px solid #1A2A42; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; line-height: 1.5;">
+<span style="color: #7D8AA0;">{{e.t}}</span>
+<span style="color: #FDBA74;">{{e.sys}}</span>
+<span>{{e.msg}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="padding: 12px 18px; border-top: 1px solid #24344D; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #7D8AA0;">Illustrative events, modelled on production systems</div>
+</div>
+</section>
+</div>
+
+<!-- numbers strip -->
+<section style="background: #F4F4F1; border-top: 1px solid #0F1B2D; border-bottom: 1px solid #0F1B2D; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));">
+<sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+<div style="padding: 36px 32px 36px 80px; border-right: 1px solid #D4D4CC; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-size: 52px; font-weight: 800; letter-spacing: -0.04em; line-height: 1;">{{s.v}}</span>
+<span style="font-size: 15px; color: #3A4658;">{{s.k}}</span>
+</div>
+</sc-for>
+</section>
+
+<!-- how it connects: animated diagram -->
+<section id="systems" style="background: #F4F4F1; padding: 112px 80px; display: flex; flex-direction: column; gap: 48px;">
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: end;">
+<h2 style="margin: 0; font-size: 52px; line-height: 1.02; font-weight: 800; letter-spacing: -0.035em;">Keep your ERP. Fix everything around it.</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #3A4658;">Most businesses don't need a new ERP — they need the missing layer between it and the people on the floor, at the counter and in the field.</p>
+</div>
+<div style="position: relative; height: 420px; border: 1px solid #0F1B2D; background: #FFFFFF;">
+<svg width="1278" height="418" viewBox="0 0 1278 418" style="position: absolute; left: 0; top: 0;" aria-hidden="true">
+<g fill="none" stroke="#C2410C" stroke-width="2" stroke-dasharray="6 6" style="animation: b-flow 0.9s linear infinite;">
+<path d="M300 110 C 420 110, 420 209, 520 209"></path>
+<path d="M300 209 L 520 209"></path>
+<path d="M300 308 C 420 308, 420 209, 520 209"></path>
+<path d="M758 209 C 858 209, 858 90, 978 90"></path>
+<path d="M758 209 C 858 209, 858 170, 978 170"></path>
+<path d="M758 209 C 858 209, 858 250, 978 250"></path>
+<path d="M758 209 C 858 209, 858 330, 978 330"></path>
+</g>
+</svg>
+<div style="position: absolute; left: 40px; top: 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5B6678;">WHAT YOU HAVE</div>
+<div style="position: absolute; left: 40px; top: 84px; width: 260px; height: 52px; border: 1px solid #0F1B2D; display: flex; align-items: center; padding: 0 16px; box-sizing: border-box; font-weight: 600; background: #F4F4F1;">SAP S/4HANA · Axpert</div>
+<div style="position: absolute; left: 40px; top: 183px; width: 260px; height: 52px; border: 1px solid #0F1B2D; display: flex; align-items: center; padding: 0 16px; box-sizing: border-box; font-weight: 600; background: #F4F4F1;">Tally</div>
+<div style="position: absolute; left: 40px; top: 282px; width: 260px; height: 52px; border: 1px solid #0F1B2D; display: flex; align-items: center; padding: 0 16px; box-sizing: border-box; font-weight: 600; background: #F4F4F1;">Excel · paper registers</div>
+<div style="position: absolute; left: 520px; top: 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5B6678;">WHAT WE BUILD</div>
+<div style="position: absolute; left: 520px; top: 120px; width: 238px; height: 178px; background: #0F1B2D; color: #F4F4F1; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #FDBA74;">KR IT LAYER</span>
+<span style="font-size: 22px; font-weight: 700; line-height: 1.15;">Portals, apps, POS, reports &amp; integrations</span>
+</div>
+<div style="position: absolute; left: 978px; top: 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #5B6678;">WHO USES IT</div>
+<div style="position: absolute; left: 978px; top: 66px; width: 260px; height: 48px; border: 1px solid #0F1B2D; display: flex; align-items: center; padding: 0 16px; box-sizing: border-box; font-weight: 600;">Cashiers at every outlet</div>
+<div style="position: absolute; left: 978px; top: 146px; width: 260px; height: 48px; border: 1px solid #0F1B2D; display: flex; align-items: center; padding: 0 16px; box-sizing: border-box; font-weight: 600;">Operators on the floor</div>
+<div style="position: absolute; left: 978px; top: 226px; width: 260px; height: 48px; border: 1px solid #0F1B2D; display: flex; align-items: center; padding: 0 16px; box-sizing: border-box; font-weight: 600;">Finance &amp; management</div>
+<div style="position: absolute; left: 978px; top: 306px; width: 260px; height: 48px; border: 1px solid #0F1B2D; display: flex; align-items: center; padding: 0 16px; box-sizing: border-box; font-weight: 600;">Customers &amp; suppliers</div>
+</div>
+</section>
+
+<!-- work index -->
+<section id="work" style="background: #0F1B2D; color: #E6E8EC; padding: 112px 80px; display: flex; flex-direction: column; gap: 40px;">
+<div style="display: flex; justify-content: space-between; align-items: end;">
+<h2 style="margin: 0; font-size: 52px; line-height: 1.02; font-weight: 800; letter-spacing: -0.035em; color: #FFFFFF;">Work index</h2>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #7D8AA0;">8 systems · client names on request</span>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #E6E8EC;">
+<div style="display: grid; grid-template-columns: 64px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1.2fr) 40px; gap: 24px; padding: 14px 0; border-bottom: 1px solid #24344D; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #7D8AA0;">
+<span>#</span><span>SYSTEM</span><span>INDUSTRY</span><span>STACK</span><span></span>
+</div>
+<sc-for list="{{work}}" as="w" hint-placeholder-count="8">
+<a href="CaseStudy.html" style="display: grid; grid-template-columns: 64px minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1.2fr) 40px; gap: 24px; padding: 26px 0; border-bottom: 1px solid #24344D; color: #E6E8EC; align-items: baseline;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #FDBA74;">{{w.no}}</span>
+<span style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em; color: #FFFFFF;">{{w.title}}</span><span style="font-size: 15px; color: #A3AEBF; line-height: 1.5;">{{w.body}}</span></span>
+<span style="font-size: 15px; color: #C9D0DB;">{{w.ind}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #A3AEBF; line-height: 1.6;">{{w.stack}}</span>
+<span style="font-size: 20px; color: #FDBA74;">→</span>
+</a>
+</sc-for>
+</div>
+</section>
+
+<!-- process + CTA -->
+<section style="background: #F4F4F1; padding: 112px 80px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-bottom: 1px solid #0F1B2D;">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<div style="padding: 0 32px 0 0; display: flex; flex-direction: column; gap: 14px;">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #C2410C;">STEP {{s.no}}</span>
+<span style="height: 2px; background: #0F1B2D;"></span>
+<span style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em;">{{s.title}}</span>
+<span style="font-size: 16px; line-height: 1.6; color: #3A4658;">{{s.body}}</span>
+</div>
+</sc-for>
+</section>
+
+<section style="background: #C2410C; color: #FFFFFF; padding: 96px 80px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 64px; align-items: center;">
+<h2 style="margin: 0; font-size: 64px; line-height: 1; font-weight: 800; letter-spacing: -0.04em;">What's still running on Excel?</h2>
+<div style="display: flex; flex-direction: column; gap: 14px;">
+<a href="Contact.html" style="height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; background: #0F1B2D; color: #FFFFFF; font-weight: 600; font-size: 17px;"><span>Book a 30-min call</span><span>→</span></a>
+<a href="https://wa.me/910000000000" style="height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; border: 1px solid #FFFFFF; color: #FFFFFF; font-weight: 600; font-size: 17px;"><span>WhatsApp [+91 XXXXX XXXXX]</span><span>→</span></a>
+</div>
+</section>
+
+<footer style="padding: 36px 80px 48px; display: flex; justify-content: space-between; color: #7D8AA0; font-size: 14px; font-family: 'JetBrains Mono', monospace;">
+<span>KR IT SOLUTION · [CITY], TAMIL NADU</span><span>© 2026</span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const ev = [
+      { t: '06:00', sys: 'sap-report', msg: 'MIS mailed to 14 managers · 3 customers auto-blocked' },
+      { t: '07:12', sys: 'dairy-erp', msg: 'Route 7 · 1,240 L collected · fat 4.1 · SNF 8.5' },
+      { t: '08:30', sys: 'pos', msg: 'Outlet 10427 opened shift · cash counted ₹2,000' },
+      { t: '09:05', sys: 'cold-room', msg: 'BKT-0915-0042 picked · FIFO ok' },
+      { t: '09:41', sys: 'quote-desk', msg: 'New request · 3 plants · 42 line items' },
+      { t: '10:18', sys: 'taskflow', msg: 'Task accepted · read receipt ✓✓' },
+      { t: '11:02', sys: 'cold-room', msg: 'Skip logged · reason: bucket damaged' },
+      { t: '12:47', sys: 'helpdesk', msg: 'Ticket #1182 resolved · note attached' },
+      { t: '14:20', sys: 'tally-sync', msg: '86 sales vouchers posted · GST split ok' },
+      { t: '17:55', sys: 'distributor', msg: 'Order from app → ERP client orders' },
+      { t: '22:10', sys: 'pos', msg: 'Outlet 10427 closed · variance ₹0' },
+      { t: '23:59', sys: 'backup', msg: 'pg_dump complete · on-prem server' }
+    ];
+    return {
+      events: ev.concat(ev),
+      stats: [
+        { v: '100+', k: 'outlets on one POS' },
+        { v: '70+', k: 'SAP reports & screens shipped' },
+        { v: '~160', k: 'tables in one dairy ERP' },
+        { v: '0', k: 'changes to your SAP core' }
+      ],
+      work: [
+        { no: '01', title: 'Dairy ERP + distributor app', body: 'Farmer procurement, payments, sales, stores, transport.', ind: 'Milk processing', stack: 'Next.js · Postgres · Expo' },
+        { no: '02', title: 'Multi-outlet POS', body: 'Shifts, GST receipts, stock, head-office dashboards.', ind: 'Beverage chain', stack: 'React · NestJS · Flutter' },
+        { no: '03', title: 'SAP S/4HANA extension', body: '70+ reports, GST returns, labels, supplier portal.', ind: 'Auto components', stack: 'Spring Boot · OData · BTP' },
+        { no: '04', title: 'Cold-room traceability', body: 'QR per bucket, FIFO at pick, offline-first.', ind: 'Frozen desserts', stack: 'PWA · Node · SQLite' },
+        { no: '05', title: 'B2B quotation desk', body: 'Buyers request by plant; staff quote from one inbox.', ind: 'Safety supplies', stack: 'Next.js · Expo · Drizzle' },
+        { no: '06', title: 'TaskFlow', body: 'Task accountability with geofenced reminders.', ind: 'Manufacturing', stack: 'NestJS · PostGIS · FCM' },
+        { no: '07', title: 'IT helpdesk on SAP login', body: 'Queues, notes, real-time alerts, reports.', ind: 'Manufacturing', stack: 'React · Express · WebSocket' },
+        { no: '08', title: 'ERP → Tally bridge', body: 'Vouchers with HSN and GST split, no re-keying.', ind: 'Food & dairy', stack: 'FastAPI · Tally JSON' }
+      ],
+      steps: [
+        { no: '01', title: 'Walk the floor', body: 'We see the work before we scope it. Free.' },
+        { no: '02', title: 'Fixed proposal', body: 'Screens, timeline, price — in writing.' },
+        { no: '03', title: 'Weekly demos', body: 'Working software on your own data, every week.' },
+        { no: '04', title: 'Go live & support', body: 'Migration, training, support. You own the code.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

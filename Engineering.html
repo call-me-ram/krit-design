@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Engineering — how we build</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="dc-shim.js"></script>
+<style>x-dc,helmet,sc-for,sc-if{display:contents}</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1C1814;font-family:'IBM Plex Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#8A5A0E;text-decoration:none}a:hover{color:#5E3D08}
+@keyframes e-flow{to{stroke-dashoffset:-16}}
+@keyframes e-caret{0%,49%{opacity:1}50%,100%{opacity:0}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 5600px; background: #1C1814; color: #1C1814; display: flex; flex-direction: column; font-family: 'IBM Plex Sans', system-ui, sans-serif;">
+
+<div style="background: #F3EEE4; display: flex; flex-direction: column;">
+<header style="height: 80px; padding: 0 96px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #D6CDBD;">
+<a href="Main.html" style="display: flex; align-items: center; gap: 12px; color: #1C1814;">
+<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><polygon points="3,28 3,15 9,11 9,28" fill="#C8902E"></polygon><polygon points="12,28 12,9 18,4 18,28" fill="#C8902E"></polygon><polygon points="21,28 21,6 27,1 27,28" fill="#C8902E"></polygon></svg>
+<span style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 500;">KR IT Solution</span>
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6B6158; padding-left: 6px;">/ engineering</span>
+</a>
+<nav aria-label="Main" style="display: flex; gap: 32px; font-size: 15px;">
+<a href="Main.html" style="color: #1C1814;">For businesses</a>
+<a href="#stack" style="color: #1C1814;">Stack</a>
+<a href="#notes" style="color: #1C1814;">Build notes</a>
+<a href="Contact.html" style="color: #1C1814; font-weight: 600;">Hire us →</a>
+</nav>
+</header>
+
+<section style="padding: 96px 96px 80px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 80px; align-items: end;">
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #8A5A0E;">For CTOs, agencies &amp; SAP partners</span>
+<h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 72px; line-height: 1.02; letter-spacing: -0.025em;">The hard parts of business software, <em style="color: #8A5A0E;">done on real floors.</em></h1>
+</div>
+<div style="background: #1C1814; color: #E9E2D4; padding: 24px 26px; font-family: 'IBM Plex Mono', monospace; font-size: 13.5px; line-height: 1.8;">
+<div style="color: #8F8576;">$ krit --capabilities</div>
+<div>offline-first sync <span style="color: #8F8576;">·</span> SAP S/4HANA OData</div>
+<div>multi-tenant SaaS <span style="color: #8F8576;">·</span> no-code engines</div>
+<div>POS &amp; thermal print <span style="color: #8F8576;">·</span> QR / barcode</div>
+<div>geofencing <span style="color: #8F8576;">·</span> realtime <span style="color: #8F8576;">·</span> MFA</div>
+<div>on-prem Windows / Linux / BTP<span style="display: inline-block; width: 8px; height: 15px; background: #C8902E; margin-left: 4px; vertical-align: -2px; animation: e-caret 1s step-end infinite;"></span></div>
+</div>
+</section>
+
+<!-- stack grid -->
+<section id="stack" style="padding: 0 96px 96px;">
+<div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border-top: 2px solid #1C1814; border-left: 1px solid #D6CDBD;">
+<sc-for list="{{stack}}" as="s" hint-placeholder-count="6">
+<div style="padding: 20px 18px 24px; border-right: 1px solid #D6CDBD; border-bottom: 1px solid #D6CDBD; display: flex; flex-direction: column; gap: 10px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #8A5A0E;">{{s.k}}</span>
+<span style="font-size: 15px; line-height: 1.7; color: #1C1814; white-space: pre-line;">{{s.v}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- build notes -->
+<section id="notes" style="padding: 0 96px 112px; display: flex; flex-direction: column; gap: 32px;">
+<h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 48px; letter-spacing: -0.02em;">Build notes</h2>
+<sc-for list="{{notes}}" as="n" hint-placeholder-count="6">
+<article style="display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 56px; padding: 40px 0 44px; border-top: 2px solid #1C1814;">
+<div style="display: flex; flex-direction: column; gap: 12px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #8A5A0E;">{{n.no}} · {{n.ind}}</span>
+<h3 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 30px; line-height: 1.15; letter-spacing: -0.01em;">{{n.title}}</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 6px; padding-top: 6px;">
+<sc-for list="{{n.tags}}" as="t" hint-placeholder-count="4">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; padding: 3px 8px; border: 1px solid #B8AD9C; color: #4A423A;">{{t}}</span>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 24px;">
+<!-- pipeline -->
+<div style="display: flex; align-items: center; padding: 20px; background: #FFFDF8; border: 1px solid #D6CDBD;">
+<sc-for list="{{n.nodes}}" as="x" hint-placeholder-count="4">
+<div style="display: flex; align-items: center; flex: 1 1 0; min-width: 0;">
+<span style="flex-shrink: 1; min-width: 0; max-width: 170px; text-align: center; line-height: 1.35; padding: 8px 10px; background: {{x.bg}}; color: {{x.fg}}; border: 1px solid #1C1814; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">{{x.label}}</span>
+<sc-if value="{{x.more}}" hint-placeholder-val="{{true}}">
+<svg height="12" viewBox="0 0 100 12" preserveAspectRatio="none" style="flex: 1 0 20px; min-width: 20px;" aria-hidden="true"><line x1="0" y1="6" x2="100" y2="6" stroke="#C8902E" stroke-width="2" stroke-dasharray="5 3" style="animation: e-flow 0.8s linear infinite;" vector-effect="non-scaling-stroke"></line></svg>
+</sc-if>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px;">
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6158;">The hard part</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #1C1814;">{{n.hard}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: #6B6158;">How we solved it</span>
+<p style="margin: 0; font-size: 16px; line-height: 1.65; color: #4A423A;">{{n.how}}</p>
+</div>
+</div>
+</div>
+</article>
+</sc-for>
+</section>
+</div>
+
+<section style="padding: 104px 96px; color: #F3EEE4; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; align-items: center;">
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 52px; line-height: 1.05; letter-spacing: -0.02em;">Need a build partner?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B8AD9C;">We take fixed-scope builds, white-label work for agencies, and SAP BTP side-by-side extensions for implementation partners. Code review and architecture calls welcome.</p>
+</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #3A332B;">
+<a href="Contact.html" style="display: flex; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid #3A332B; color: #F3EEE4; font-size: 18px;"><span>Start a project</span><span style="color: #C8902E;">→</span></a>
+<a href="https://github.com/call-me-ram" style="display: flex; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid #3A332B; color: #F3EEE4; font-size: 18px;"><span>GitHub</span><span style="color: #C8902E;">→</span></a>
+<a href="https://www.linkedin.com/" style="display: flex; justify-content: space-between; padding: 22px 0; border-bottom: 1px solid #3A332B; color: #F3EEE4; font-size: 18px;"><span>LinkedIn [your profile]</span><span style="color: #C8902E;">→</span></a>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const pipe = (labels, hi) => labels.map((label, i) => ({
+      label, more: i < labels.length - 1,
+      bg: i === hi ? '#1C1814' : '#F3EEE4',
+      fg: i === hi ? '#F3EEE4' : '#1C1814'
+    }));
+    return {
+      stack: [
+        { k: 'Web', v: 'React 19\nNext.js 15–16\nVite · Tailwind\nTanStack Query' },
+        { k: 'Mobile', v: 'React Native / Expo\nFlutter · Riverpod\nInstallable PWAs\nFCM push' },
+        { k: 'Backend', v: 'NestJS · Express\nSpring Boot (Java 21)\nFastAPI\ntRPC · WebSockets' },
+        { k: 'Data', v: 'PostgreSQL · PostGIS\nPrisma · Drizzle\nSQLite (on-device)\nRedis · BullMQ' },
+        { k: 'Integrations', v: 'SAP S/4HANA OData\nTally · Axpert\nUPI · SMS · SMTP\nJasper · QR / barcode' },
+        { k: 'Ops', v: 'Docker · Caddy · nginx\nIIS + PM2 on Windows\nSAP BTP · VPS\nGitHub Actions' }
+      ],
+      notes: [
+        { no: '01', ind: 'Frozen desserts', title: 'Offline-first scanning in a −25 °C cold room', tags: ['PWA', 'SQLite WAL', 'sync queue', 'jsQR'],
+          nodes: pipe(['Phone camera / USB scanner', 'PWA · cached shell', 'Durable action queue', 'Express API', 'SQLite'], 2),
+          hard: 'No signal inside the cold room, gloved hands, and operators who will scan the same bucket twice. Losing a scan means losing traceability.',
+          how: 'Every action goes into a per-account durable queue and replays when the phone reconnects. Server operations are idempotent, conflicts are shown to the user rather than silently merged, and FIFO is checked server-side with an audited override.' },
+        { no: '02', ind: 'Auto components', title: 'Extending SAP S/4HANA Public Cloud without touching the core', tags: ['OData', 'CDS', 'SAP BTP', 'Spring Boot'],
+          nodes: pipe(['S/4HANA CDS APIs', 'Spring Boot on BTP', 'Config-driven reports', 'React · PDF · Excel · mail'], 2),
+          hard: 'Public Cloud allows no custom ABAP, the business runs 10+ plants, and finance needs GST returns, labels and printable invoices SAP doesn’t provide.',
+          how: 'A side-by-side app on BTP reads custom CDS/OData APIs. Most reports are one config entry rendered by a shared engine; Jasper handles PDFs, ZXing the QR tags, and a 6 AM job mails MIS and blocks overdue customers. Being migrated from JSP to React page by page.' },
+        { no: '03', ind: 'Beverage chain', title: 'Cash discipline across 100+ outlets', tags: ['NestJS', 'PostgreSQL', 'Flutter', 'thermal print'],
+          nodes: pipe(['Counter · web / tablet', 'NestJS API', 'PostgreSQL', 'Head-office dashboard'], 1),
+          hard: 'Prices must be controlled centrally, every outlet must reconcile its cash, and receipts must be GST-compliant — on cheap hardware.',
+          how: 'Billing is only possible inside an open shift; opening and closing cash are counted by denomination and variances need a note. Store-scoped order numbers, head-office-only pricing, HTML receipts to thermal printers, and a Flutter + SQLite variant for offline counters.' },
+        { no: '04', ind: 'Manufacturing', title: 'Reminders that fire when you reach the site', tags: ['PostGIS', 'geofencing', 'BullMQ', 'Socket.IO'],
+          nodes: pipe(['Android · background geofence', 'NestJS', 'BullMQ / Redis', 'PostGIS', 'FCM · web push'], 1),
+          hard: 'Tasks for up to 500 people across sites, with proof that each one was seen and accepted — and staff already have SAP logins.',
+          how: 'A task state machine with accept / extend / reassign approvals, delivered-and-read ticks over Socket.IO, a per-minute BullMQ scheduler, and background geofences on Android. Sign-in is checked against the SAP user master.' },
+        { no: '05', ind: 'Milk processing', title: 'Replacing a legacy ERP with ~160 tables on-premise', tags: ['Next.js', 'Prisma', 'Excel import', 'on-prem'],
+          nodes: pipe(['Excel / external API', 'Import mapper', 'PostgreSQL', 'Web ERP', 'Android ordering app'], 1),
+          hard: 'Staff had used the same desktop screens for years, years of data lived in spreadsheets, and the server sits on the office LAN.',
+          how: 'Screens rebuilt for parity from the legacy UI. A pull → map → transform → preview → import pipeline on every master and transaction. A pg_dump backup before every migration and PowerShell scripts for Windows deploys, HTTPS and updates.' },
+        { no: '06', ind: 'Platform', title: 'A no-code ERP engine with GST and Peppol e-invoicing', tags: ['multi-tenant', 'tRPC', 'QuickJS', 'Playwright'],
+          nodes: pipe(['Form & workflow designer', 'Metadata', 'Runtime player', 'Postgres · tenant-scoped'], 2),
+          hard: 'Let implementers ship an inventory, purchase, sales and accounts ERP per client without writing code — while staying fast and safe multi-tenant.',
+          how: 'A drag-and-drop designer produces metadata a runtime player renders. Documents run on state machines with fiscal-year number series, a formula engine and sandboxed QuickJS scripts. Row-level tenant scoping; ~3,300 unit and 147 end-to-end tests; list p95 of 84 ms at 100k records.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

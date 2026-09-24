@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KR IT Solution — Website Redesign</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#F3EEE4; --ink:#1C1814; --muted:#6B6158; --rule:#D6CDBD; --gold:#8A5A0E; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  main { max-width:1120px; margin:0 auto; padding:64px 24px 96px; }
+  .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+  h1 { font-family:'Newsreader',Georgia,serif; font-weight:400; font-size:clamp(36px,6vw,60px); line-height:1.05; letter-spacing:-.02em; margin:12px 0 16px; }
+  p.lead { font-size:18px; line-height:1.6; color:#4A423A; max-width:640px; margin:0; }
+  h2 { font-family:'Newsreader',Georgia,serif; font-weight:400; font-size:30px; margin:64px 0 8px; }
+  h2 + p { color:var(--muted); margin:0 0 20px; line-height:1.5; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+  a.card { display:flex; flex-direction:column; gap:8px; padding:24px; background:#FFFDF8; border:1px solid var(--rule); color:var(--ink); text-decoration:none; min-height:150px; }
+  a.card:hover { border-color:var(--ink); }
+  .tag { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold); }
+  .name { font-family:'Newsreader',Georgia,serif; font-size:24px; line-height:1.2; }
+  .desc { font-size:15px; line-height:1.5; color:#4A423A; }
+  .swatches { display:flex; gap:6px; margin-top:auto; padding-top:8px; }
+  .swatches span { width:22px; height:22px; border:1px solid rgba(0,0,0,.15); }
+  footer { margin-top:72px; padding-top:20px; border-top:1px solid var(--rule); font-size:14px; color:var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Design review · September 2026</div>
+  <h1>KR IT Solution: website redesign</h1>
+  <p class="lead">Three homepage directions, plus the supporting pages. Pick a direction and it gets carried across every page. Text in [brackets] is a placeholder.</p>
+
+  <h2>Homepage directions</h2>
+  <p>Same content and positioning, three visual styles.</p>
+  <div class="grid">
+    <a class="card" href="Main.html"><span class="tag">DIRECTION A</span><span class="name">Ledger</span><span class="desc">Warm paper, brown and gold from the existing logo. Calm and premium, built for owners and finance heads.</span><span class="swatches"><span style="background:#F3EEE4"></span><span style="background:#1C1814"></span><span style="background:#C8902E"></span></span></a>
+    <a class="card" href="HomeB.html"><span class="tag">DIRECTION B</span><span class="name">Operations log</span><span class="desc">Engineering grid, navy and safety orange, with a live event feed. Feels like a systems company.</span><span class="swatches"><span style="background:#F4F4F1"></span><span style="background:#0F1B2D"></span><span style="background:#C2410C"></span></span></a>
+    <a class="card" href="HomeC.html"><span class="tag">DIRECTION C</span><span class="name">Signal</span><span class="desc">Black and hazard yellow with poster-sized type. Loud and memorable, built for LinkedIn and trade shows.</span><span class="swatches"><span style="background:#121212"></span><span style="background:#F2F0EA"></span><span style="background:#FFC62B"></span></span></a>
+  </div>
+
+  <h2>Supporting pages</h2>
+  <p>Shown in Direction A for now.</p>
+  <div class="grid">
+    <a class="card" href="Mobile.html"><span class="tag">PHONE</span><span class="name">Home on a phone</span><span class="desc">With a sticky WhatsApp and call bar.</span></a>
+    <a class="card" href="CaseStudy.html"><span class="tag">CASE STUDY</span><span class="name">Dairy ERP</span><span class="desc">A template for every project write-up.</span></a>
+    <a class="card" href="Engineering.html"><span class="tag">FOR TECHNICAL BUYERS</span><span class="name">Engineering</span><span class="desc">Build notes and architecture for CTOs, agencies and SAP partners.</span></a>
+    <a class="card" href="ColdRoom.html"><span class="tag">PRODUCT</span><span class="name">Cold-room traceability</span><span class="desc">A packaged product page with a pilot offer.</span></a>
+    <a class="card" href="Contact.html"><span class="tag">CONTACT</span><span class="name">Start a project</span><span class="desc">An enquiry form with clickable need chips.</span></a>
+  </div>
+
+  <footer>Mockups are best viewed on a laptop or desktop; they scale down on smaller screens.</footer>
+</main>
+</body>
+</html>

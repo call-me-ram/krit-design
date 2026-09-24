@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Direction C — Signal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="dc-shim.js"></script>
+<style>x-dc,helmet,sc-for,sc-if{display:contents}</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&amp;family=Public+Sans:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#121212;font-family:'Public Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#FFC62B;text-decoration:none}a:hover{color:#FFD966}
+@keyframes c-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes c-rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes c-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 4700px; background: #121212; color: #F2F0EA; display: flex; flex-direction: column; font-family: 'Public Sans', system-ui, sans-serif;">
+
+<header style="height: 84px; padding: 0 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #2E2E2E;">
+<a href="#top" style="display: flex; align-items: center; gap: 12px; color: #F2F0EA;">
+<svg width="32" height="32" viewBox="0 0 30 30" aria-hidden="true"><polygon points="3,28 3,15 9,11 9,28" fill="#FFC62B"></polygon><polygon points="12,28 12,9 18,4 18,28" fill="#FFC62B"></polygon><polygon points="21,28 21,6 27,1 27,28" fill="#FFC62B"></polygon></svg>
+<span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 0.02em; text-transform: uppercase;">KR IT Solution</span>
+</a>
+<nav aria-label="Main" style="display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 600;">
+<a href="#work" style="color: #F2F0EA;">Work</a>
+<a href="ColdRoom.html" style="color: #F2F0EA;">Products</a>
+<a href="Engineering.html" style="color: #F2F0EA;">Engineering</a>
+<a href="Contact.html" style="height: 46px; padding: 0 22px; display: inline-flex; align-items: center; background: #FFC62B; color: #121212; font-weight: 700;">Get a quote</a>
+</nav>
+</header>
+
+<section id="top" style="padding: 80px 64px 56px; display: flex; flex-direction: column; gap: 40px;">
+<h1 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 176px; line-height: 0.86; letter-spacing: -0.01em; text-transform: uppercase; animation: c-rise 0.9s cubic-bezier(.2,.7,.2,1) both;">Your business<br>runs on Excel<br><span style="color: #FFC62B;">and WhatsApp.</span></h1>
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: end;">
+<p style="margin: 0; font-size: 26px; line-height: 1.4; font-weight: 500; max-width: 620px;">We replace it with software built for your floor — ERP, billing, SAP &amp; Tally links and shop-floor apps. For manufacturers, food businesses and distributors.</p>
+<div style="display: flex; gap: 12px; justify-content: flex-end;">
+<a href="Contact.html" style="height: 64px; padding: 0 32px; display: inline-flex; align-items: center; background: #FFC62B; color: #121212; font-weight: 700; font-size: 18px;">Book a free call →</a>
+<a href="https://wa.me/910000000000" style="height: 64px; padding: 0 28px; display: inline-flex; align-items: center; border: 2px solid #F2F0EA; color: #F2F0EA; font-weight: 700; font-size: 18px;">WhatsApp</a>
+</div>
+</div>
+</section>
+
+<!-- marquee -->
+<div style="background: #FFC62B; color: #121212; height: 88px; overflow: hidden; display: flex; align-items: center; border-top: 2px solid #121212; border-bottom: 2px solid #121212;">
+<div style="display: flex; gap: 48px; white-space: nowrap; animation: c-marquee 32s linear infinite; font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 40px; text-transform: uppercase; letter-spacing: 0.01em;">
+<sc-for list="{{marquee}}" as="m" hint-placeholder-count="12">
+<span style="display: flex; align-items: center; gap: 48px;">{{m}}<span aria-hidden="true">■</span></span>
+</sc-for>
+</div>
+</div>
+
+<!-- big numbers -->
+<section style="padding: 104px 64px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-bottom: 1px solid #2E2E2E;">
+<sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+<div style="padding: 0 32px 0 0; display: flex; flex-direction: column; gap: 14px;">
+<span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 120px; line-height: 0.85; color: #FFC62B;">{{s.v}}</span>
+<span style="height: 4px; background: #F2F0EA; transform-origin: left; animation: c-fill 1.2s cubic-bezier(.2,.7,.2,1) both;"></span>
+<span style="font-size: 18px; line-height: 1.4; font-weight: 500;">{{s.k}}</span>
+</div>
+</sc-for>
+</section>
+
+<!-- work: full-width rows -->
+<section id="work" style="padding: 104px 64px 64px; display: flex; flex-direction: column;">
+<div style="display: flex; justify-content: space-between; align-items: end; padding-bottom: 32px;">
+<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 104px; line-height: 0.9; text-transform: uppercase;">Built.</h2>
+<span style="font-size: 17px; color: #A8A49A; max-width: 360px; text-align: right;">For plants, outlets and depots across Tamil Nadu.</span>
+</div>
+<sc-for list="{{work}}" as="w" hint-placeholder-count="5">
+<a href="CaseStudy.html" style="display: grid; grid-template-columns: 120px minmax(0, 1.4fr) minmax(0, 1fr) 64px; gap: 32px; padding: 36px 0; border-top: 2px solid #F2F0EA; color: #F2F0EA; align-items: center;">
+<span style="font-family: 'IBM Plex Mono', monospace; font-size: 15px; color: #FFC62B;">{{w.tag}}</span>
+<span style="font-family: 'Big Shoulders Display', sans-serif; font-weight: 800; font-size: 54px; line-height: 0.95; text-transform: uppercase;">{{w.title}}</span>
+<span style="font-size: 17px; line-height: 1.55; color: #C9C5BB;">{{w.body}}</span>
+<span style="width: 64px; height: 64px; border: 2px solid #FFC62B; display: flex; align-items: center; justify-content: center; color: #FFC62B; font-size: 26px;">→</span>
+</a>
+</sc-for>
+</section>
+
+<!-- services on yellow -->
+<section style="margin: 40px 64px 0; background: #F2F0EA; color: #121212; padding: 72px; display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 72px;">
+<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 88px; line-height: 0.88; text-transform: uppercase;">What we build</h2>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px;">
+<sc-for list="{{services}}" as="s" hint-placeholder-count="6">
+<div style="padding: 22px 0; border-top: 2px solid #121212; display: flex; flex-direction: column; gap: 6px;">
+<span style="font-size: 22px; font-weight: 700;">{{s.t}}</span>
+<span style="font-size: 16px; line-height: 1.55; color: #3D3A34;">{{s.b}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- CTA -->
+<section style="padding: 128px 64px 96px; display: flex; flex-direction: column; gap: 48px;">
+<h2 style="margin: 0; font-family: 'Big Shoulders Display', sans-serif; font-weight: 900; font-size: 160px; line-height: 0.86; text-transform: uppercase;">Let's fix<br><span style="color: #FFC62B;">the spreadsheet.</span></h2>
+<div style="display: flex; gap: 16px; align-items: center;">
+<a href="Contact.html" style="height: 72px; padding: 0 40px; display: inline-flex; align-items: center; background: #FFC62B; color: #121212; font-weight: 700; font-size: 20px;">Book a free 30-min call →</a>
+<span style="font-size: 18px; color: #C9C5BB; padding-left: 16px;">or WhatsApp [+91 XXXXX XXXXX] · [hello@krit-solution.com]</span>
+</div>
+</section>
+
+<footer style="margin: 0 64px; padding: 32px 0 48px; border-top: 1px solid #2E2E2E; display: flex; justify-content: space-between; font-size: 14px; color: #8F8B82;">
+<span>KR IT Solution · [City], Tamil Nadu</span><span>© 2026</span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const m = ['Dairy ERP', 'Chain POS', 'SAP reports', 'Tally sync', 'QR traceability', 'Supplier portals', 'Distributor apps', 'Task tracking', 'GST invoices', 'Offline apps', 'Thermal receipts', 'Helpdesks'];
+    return {
+      marquee: m.concat(m),
+      stats: [
+        { v: '100+', k: 'outlets billing on one POS' },
+        { v: '70+', k: 'SAP reports & screens shipped' },
+        { v: '160', k: 'tables in one dairy ERP (approx.)' },
+        { v: '8', k: 'systems built across 5 industries' }
+      ],
+      work: [
+        { tag: 'DAIRY', title: 'Legacy ERP → web', body: 'Farmer procurement, payments, sales, stores and transport, plus an ordering app for distributors.' },
+        { tag: 'RETAIL', title: '100-outlet POS', body: 'Shift cash control, GST thermal receipts, stock and live head-office dashboards.' },
+        { tag: 'SAP', title: 'What SAP didn’t ship', body: '70+ reports and screens on S/4HANA Cloud — GST, ageing, labels, portals.' },
+        { tag: 'FOOD', title: 'Cold-room QR', body: 'Every bucket labelled, FIFO enforced, works with no signal at −25 °C.' },
+        { tag: 'TRADE', title: 'WhatsApp → orders', body: 'Factory buyers request quotes by plant; staff quote from one secure desk.' }
+      ],
+      services: [
+        { t: 'Custom ERP', b: 'Procurement to accounts, shaped to your process.' },
+        { t: 'POS & billing', b: 'Multi-outlet, GST, UPI, thermal printers.' },
+        { t: 'SAP · Tally · Axpert', b: 'Reports, portals and syncs on top of what you have.' },
+        { t: 'Shop-floor apps', b: 'Scanning and entry on any phone, offline-ready.' },
+        { t: 'Portals', b: 'Customers order, suppliers file ASNs, distributors check dues.' },
+        { t: 'Internal tools', b: 'Tasks, tickets, approvals that don’t get lost.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
