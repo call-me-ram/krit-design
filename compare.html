@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compare A · B · C — KR IT Solution</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --paper:#F3EEE4; --ink:#1C1814; --muted:#6B6158; --rule:#D6CDBD; --gold:#8A5A0E; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin:0; background:var(--ink); color:var(--paper); font-family:'IBM Plex Sans',system-ui,sans-serif; display:flex; flex-direction:column; -webkit-font-smoothing:antialiased; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 20px; border-bottom:1px solid #3A332B; flex-wrap:wrap; }
+  header a { color:var(--paper); text-decoration:none; font-size:14px; }
+  h1 { margin:0; font-family:'Newsreader',Georgia,serif; font-weight:400; font-size:22px; }
+  .hint { font-size:13px; color:#B8AD9C; }
+  label.sync { display:flex; align-items:center; gap:8px; font-size:14px; cursor:pointer; min-height:44px; }
+  label.sync input { width:18px; height:18px; accent-color:#C8902E; }
+  .cols { flex:1; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:1px; background:#3A332B; min-height:0; }
+  .col { display:flex; flex-direction:column; background:var(--ink); min-height:0; }
+  .bar { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid #3A332B; }
+  .bar b { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; color:#C8902E; font-weight:500; }
+  .bar span { font-family:'Newsreader',Georgia,serif; font-size:19px; margin-left:10px; }
+  .bar a { font-size:13px; color:#B8AD9C; text-decoration:none; padding:8px 0; }
+  .bar a:hover { color:var(--paper); }
+  .frame { position:relative; flex:1; overflow:hidden; min-height:0; }
+  .frame iframe { position:absolute; top:0; left:0; width:1440px; border:0; transform-origin:0 0; background:#fff; }
+  @media (max-width: 900px) {
+    .cols { grid-template-columns:1fr; }
+    .col { height:80vh; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;">
+    <a href="index.html">← All pages</a>
+    <h1>Homepage directions, side by side</h1>
+    <span class="hint">Scroll inside any column. Click “Open full size” to see one at real size.</span>
+  </div>
+  <label class="sync"><input type="checkbox" id="sync" checked> Scroll all three together</label>
+</header>
+<div class="cols">
+  <section class="col">
+    <div class="bar"><div><b>A</b><span>Ledger</span></div><a href="Main.html" target="_blank" rel="noopener">Open full size ↗</a></div>
+    <div class="frame"><iframe src="Main.html" title="Direction A — Ledger" loading="eager"></iframe></div>
+  </section>
+  <section class="col">
+    <div class="bar"><div><b>B</b><span>Operations log</span></div><a href="HomeB.html" target="_blank" rel="noopener">Open full size ↗</a></div>
+    <div class="frame"><iframe src="HomeB.html" title="Direction B — Operations log" loading="eager"></iframe></div>
+  </section>
+  <section class="col">
+    <div class="bar"><div><b>C</b><span>Signal</span></div><a href="HomeC.html" target="_blank" rel="noopener">Open full size ↗</a></div>
+    <div class="frame"><iframe src="HomeC.html" title="Direction C — Signal" loading="eager"></iframe></div>
+  </section>
+</div>
+<script>
+  // Scale each 1440px-wide page to its column; keep scroll in sync (by % of page height).
+  const frames = [...document.querySelectorAll('.frame iframe')];
+  const sync = document.getElementById('sync');
+  let lock = false;
+
+  function layout() {
+    frames.forEach((f) => {
+      const box = f.parentElement;
+      const scale = box.clientWidth / 1440;
+      f.style.transform = `scale(${scale})`;
+      f.style.height = (box.clientHeight / scale) + 'px';
+    });
+  }
+
+  function hook(f) {
+    if (f.dataset.hooked) return;
+    f.dataset.hooked = '1';
+    {
+      const win = f.contentWindow;
+      try { win.document.body.style.zoom = ''; } catch (e) {}
+      // The pages' own fit-to-width zoom is not wanted inside the scaled frame.
+      win.addEventListener('resize', () => { try { win.document.body.style.zoom = ''; } catch (e) {} });
+      win.addEventListener('scroll', () => {
+        if (!sync.checked || lock) return;
+        const d = win.document.documentElement;
+        const pct = win.scrollY / Math.max(1, d.scrollHeight - win.innerHeight);
+        lock = true;
+        frames.forEach((o) => {
+          if (o === f) return;
+          const ow = o.contentWindow, od = ow.document.documentElement;
+          ow.scrollTo(0, pct * (od.scrollHeight - ow.innerHeight));
+        });
+        requestAnimationFrame(() => { lock = false; });
+      });
+      layout();
+    }
+  }
+  // An iframe may finish loading before this script runs, so hook both ways.
+  frames.forEach((f) => {
+    f.addEventListener('load', () => hook(f));
+    try { if (f.contentDocument && f.contentDocument.readyState === 'complete' && f.contentDocument.querySelector('x-dc > *')) hook(f); } catch (e) {}
+  });
+  window.addEventListener('resize', layout);
+  layout();
+</script>
+</body>
+</html>

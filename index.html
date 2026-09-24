@@ -17,12 +17,17 @@
   h2 + p { color:var(--muted); margin:0 0 20px; line-height:1.5; }
   .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
   a.card { display:flex; flex-direction:column; gap:8px; padding:24px; background:#FFFDF8; border:1px solid var(--rule); color:var(--ink); text-decoration:none; min-height:150px; }
+  .thumb { display:block; }
   a.card:hover { border-color:var(--ink); }
   .tag { font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--gold); }
   .name { font-family:'Newsreader',Georgia,serif; font-size:24px; line-height:1.2; }
   .desc { font-size:15px; line-height:1.5; color:#4A423A; }
   .swatches { display:flex; gap:6px; margin-top:auto; padding-top:8px; }
   .swatches span { width:22px; height:22px; border:1px solid rgba(0,0,0,.15); }
+  a.compare { display:inline-flex; align-items:center; gap:10px; margin-top:28px; height:56px; padding:0 26px; background:var(--ink); color:var(--paper); text-decoration:none; font-weight:500; font-size:16px; }
+  a.compare:hover { background:#000; }
+  .thumb { position:relative; height:220px; overflow:hidden; border:1px solid var(--rule); margin:-4px 0 8px; background:#fff; }
+  .thumb iframe { position:absolute; top:0; left:0; width:1440px; height:1100px; border:0; transform-origin:0 0; pointer-events:none; }
   footer { margin-top:72px; padding-top:20px; border-top:1px solid var(--rule); font-size:14px; color:var(--muted); }
 </style>
 </head>
@@ -31,13 +36,14 @@
   <div class="eyebrow">Design review · September 2026</div>
   <h1>KR IT Solution: website redesign</h1>
   <p class="lead">Three homepage directions, plus the supporting pages. Pick a direction and it gets carried across every page. Text in [brackets] is a placeholder.</p>
+  <a class="compare" href="compare.html">Compare A · B · C side by side →</a>
 
   <h2>Homepage directions</h2>
   <p>Same content and positioning, three visual styles.</p>
   <div class="grid">
-    <a class="card" href="Main.html"><span class="tag">DIRECTION A</span><span class="name">Ledger</span><span class="desc">Warm paper, brown and gold from the existing logo. Calm and premium, built for owners and finance heads.</span><span class="swatches"><span style="background:#F3EEE4"></span><span style="background:#1C1814"></span><span style="background:#C8902E"></span></span></a>
-    <a class="card" href="HomeB.html"><span class="tag">DIRECTION B</span><span class="name">Operations log</span><span class="desc">Engineering grid, navy and safety orange, with a live event feed. Feels like a systems company.</span><span class="swatches"><span style="background:#F4F4F1"></span><span style="background:#0F1B2D"></span><span style="background:#C2410C"></span></span></a>
-    <a class="card" href="HomeC.html"><span class="tag">DIRECTION C</span><span class="name">Signal</span><span class="desc">Black and hazard yellow with poster-sized type. Loud and memorable, built for LinkedIn and trade shows.</span><span class="swatches"><span style="background:#121212"></span><span style="background:#F2F0EA"></span><span style="background:#FFC62B"></span></span></a>
+    <a class="card" href="Main.html"><span class="thumb"><iframe src="Main.html" title="Direction A — Ledger preview" tabindex="-1" loading="lazy"></iframe></span><span class="tag">DIRECTION A</span><span class="name">Ledger</span><span class="desc">Warm paper, brown and gold from the existing logo. Calm and premium, built for owners and finance heads.</span><span class="swatches"><span style="background:#F3EEE4"></span><span style="background:#1C1814"></span><span style="background:#C8902E"></span></span></a>
+    <a class="card" href="HomeB.html"><span class="thumb"><iframe src="HomeB.html" title="Direction B — Operations log preview" tabindex="-1" loading="lazy"></iframe></span><span class="tag">DIRECTION B</span><span class="name">Operations log</span><span class="desc">Engineering grid, navy and safety orange, with a live event feed. Feels like a systems company.</span><span class="swatches"><span style="background:#F4F4F1"></span><span style="background:#0F1B2D"></span><span style="background:#C2410C"></span></span></a>
+    <a class="card" href="HomeC.html"><span class="thumb"><iframe src="HomeC.html" title="Direction C — Signal preview" tabindex="-1" loading="lazy"></iframe></span><span class="tag">DIRECTION C</span><span class="name">Signal</span><span class="desc">Black and hazard yellow with poster-sized type. Loud and memorable, built for LinkedIn and trade shows.</span><span class="swatches"><span style="background:#121212"></span><span style="background:#F2F0EA"></span><span style="background:#FFC62B"></span></span></a>
   </div>
 
   <h2>Supporting pages</h2>
@@ -52,5 +58,16 @@
 
   <footer>Mockups are best viewed on a laptop or desktop; they scale down on smaller screens.</footer>
 </main>
+<script>
+  // Scale the live previews to their card width.
+  function fitThumbs() {
+    document.querySelectorAll('.thumb').forEach((t) => {
+      const f = t.querySelector('iframe');
+      f.style.transform = 'scale(' + (t.clientWidth / 1440) + ')';
+    });
+  }
+  window.addEventListener('resize', fitThumbs);
+  fitThumbs();
+</script>
 </body>
 </html>
